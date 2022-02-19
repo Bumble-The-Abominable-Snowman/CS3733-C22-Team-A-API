@@ -22,7 +22,6 @@ public class SanitationSR {
 
     // Put sanitation types in type menu
     typeChoice.getItems().addAll("Decontaminate Area", "Floor Spill", "Other");
-    typeChoice.getSelectionModel().select("Select Type");
     typeChoice
         .getSelectionModel()
         .selectedItemProperty()
@@ -37,15 +36,23 @@ public class SanitationSR {
 
     // Put example locations in location menu
     toLocationChoice.getItems().addAll("Emergency", "Chapel", "Elevator LL2");
-    toLocationChoice.getSelectionModel().select("Select Location");
 
     // Put example employees in employee menu
     employeeChoice.getItems().addAll("Trump", "Obama", "The Rock");
-    employeeChoice.getSelectionModel().select("Select Employee");
   }
 
   @FXML
   private void submitRequest() {
-    // Implement request
+    // Temporary log code, replace with implementation
+    String typeOption = typeChoice.getSelectionModel().getSelectedItem().toString();
+    if (typeOption == "Other") typeOption = typeOtherBox.getText();
+    System.out.println(
+        typeOption
+            + " | "
+            + toLocationChoice.getSelectionModel().getSelectedItem()
+            + " | "
+            + employeeChoice.getSelectionModel().getSelectedItem()
+            + " | "
+            + (commentsBox.getText().equals("") ? "N/A" : commentsBox.getText()));
   }
 }
