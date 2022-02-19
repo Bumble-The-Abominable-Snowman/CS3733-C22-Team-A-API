@@ -3,16 +3,23 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.cs3733.c22.teamA.controllers.SanitationSR">
    <children>
-      <JFXButton fx:id="submitButton" layoutX="118.0" layoutY="320.0" onAction="#submitRequest" styleClass="jfx-button" stylesheets="@../css/default.css" text="Create Sanitation Service Request" />
+      <JFXButton layoutX="118.0" layoutY="320.0" onAction="#submitRequest" styleClass="jfx-button" stylesheets="@../css/default.css" text="Create Sanitation Service Request" />
       <JFXComboBox fx:id="typeChoice" layoutX="51.0" layoutY="103.0" prefHeight="26.0" prefWidth="118.0" promptText="Select Type" styleClass="jfx-combo-box" stylesheets="@../css/default.css" />
       <JFXComboBox fx:id="toLocationChoice" layoutX="241.0" layoutY="103.0" prefHeight="26.0" prefWidth="118.0" promptText="Select Location" styleClass="jfx-combo-box" stylesheets="@../css/default.css" />
       <JFXComboBox fx:id="employeeChoice" layoutX="429.0" layoutY="103.0" prefHeight="26.0" prefWidth="118.0" promptText="Select Employee" styleClass="jfx-combo-box" stylesheets="@../css/default.css" />
       <JFXTextArea fx:id="commentsBox" layoutX="379.0" layoutY="178.0" prefHeight="167.0" prefWidth="162.0" promptText="Special Instructions/Notes" styleClass="jfx-text-area" stylesheets="@../css/default.css" />
       <JFXTextArea fx:id="typeOtherBox" layoutX="43.0" layoutY="151.0" prefHeight="70.0" prefWidth="134.0" promptText="Please specify" styleClass="jfx-text-area" stylesheets="@../css/default.css" visible="false" />
+      <Label layoutX="156.0" layoutY="31.0" text="Sanitation Request">
+         <font>
+            <Font name="HelveticaNeue-MediumExt" size="27.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="550.0" layoutY="14.0" onAction="#exit" styleClass="jfx-button" stylesheets="@../css/default.css" text="Exit" />
    </children>
 </AnchorPane>

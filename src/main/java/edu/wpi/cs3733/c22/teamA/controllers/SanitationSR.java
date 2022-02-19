@@ -1,13 +1,11 @@
 package edu.wpi.cs3733.c22.teamA.controllers;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
 public class SanitationSR {
 
-  @FXML JFXButton submitButton;
   @FXML JFXComboBox typeChoice;
   @FXML JFXComboBox toLocationChoice;
   @FXML JFXComboBox employeeChoice;
@@ -54,5 +52,10 @@ public class SanitationSR {
             + employeeChoice.getSelectionModel().getSelectedItem()
             + " | "
             + (commentsBox.getText().equals("") ? "N/A" : commentsBox.getText()));
+  }
+
+  @FXML
+  private void exit() {
+    System.exit(0);
   }
 }
