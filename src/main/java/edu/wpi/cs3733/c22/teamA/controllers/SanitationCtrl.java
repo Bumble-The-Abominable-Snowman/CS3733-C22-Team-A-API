@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 
-public class SanitationSR {
+public class SanitationCtrl {
 
   @FXML JFXComboBox typeChoice;
   @FXML JFXComboBox toLocationChoice;
