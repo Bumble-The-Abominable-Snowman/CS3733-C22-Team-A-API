@@ -10,7 +10,19 @@ public class Main {
   }
 
   // API method to start program
-  void run(int xCoord, int yCoord, int windowWidth, int windowLength, String cssPath, String destLocationID, String originLocationID) throws ServiceException{
-
+  void run(
+      int xCoord,
+      int yCoord,
+      int windowWidth,
+      int windowLength,
+      String cssPath,
+      String destLocationID,
+      String originLocationID)
+      throws ServiceException {
+    App.windowPosX = xCoord;
+    App.windowPosY = yCoord;
+    App.windowWidth = windowWidth;
+    App.windowHeight = windowLength;
+    App.launch(App.class);
   }
 }

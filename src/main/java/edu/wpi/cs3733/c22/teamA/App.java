@@ -12,6 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App extends Application {
 
+  static int windowPosX = -1;
+  static int windowPosY = -1;
+  static int windowWidth = -1;
+  static int windowHeight = -1;
+
   @Override
   public void init() {
     log.info("Starting Up");
@@ -26,6 +31,10 @@ public class App extends Application {
     Parent root = loader.load();
     Scene sanitationScene = new Scene(root);
     primaryStage.setScene(sanitationScene);
+    if (windowPosX != -1) primaryStage.setX(windowPosX);
+    if (windowPosY != -1) primaryStage.setY(windowPosY);
+    if (windowWidth != -1) primaryStage.setWidth(windowWidth);
+    if (windowHeight != -1) primaryStage.setHeight(windowHeight);
     primaryStage.show();
   }
 
