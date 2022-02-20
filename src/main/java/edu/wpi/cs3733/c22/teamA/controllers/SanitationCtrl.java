@@ -2,6 +2,7 @@ package edu.wpi.cs3733.c22.teamA.controllers;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import edu.wpi.cs3733.c22.teamA.entities.SanitationSR;
 import javafx.fxml.FXML;
 
 public class SanitationCtrl {
@@ -11,6 +12,8 @@ public class SanitationCtrl {
   @FXML JFXComboBox employeeChoice;
   @FXML JFXTextArea commentsBox;
   @FXML JFXTextArea typeOtherBox;
+
+  private static String toLocationOption = "N/A";
 
   @FXML
   private void initialize() {
@@ -34,6 +37,10 @@ public class SanitationCtrl {
 
     // Put example locations in location menu
     toLocationChoice.getItems().addAll("Emergency", "Chapel", "Elevator LL2");
+    if (toLocationOption != "N/A") {
+      toLocationChoice.getItems().add(toLocationOption);
+      toLocationChoice.getSelectionModel().select(toLocationOption);
+    }
 
     // Put example employees in employee menu
     employeeChoice.getItems().addAll("Trump", "Obama", "The Rock");
@@ -41,21 +48,29 @@ public class SanitationCtrl {
 
   @FXML
   private void submitRequest() {
-    // Temporary log code, replace with implementation
+    // Checks to make sure required fields are selected
+    if (typeChoice.getSelectionModel().getSelectedItem() == null
+        || toLocationChoice.getSelectionModel().getSelectedItem() == null
+        || employeeChoice.getSelectionModel().getSelectedItem() == null) return;
+    // Creates sanitation request object
+    SanitationSR request = new SanitationSR();
     String typeOption = typeChoice.getSelectionModel().getSelectedItem().toString();
     if (typeOption == "Other") typeOption = typeOtherBox.getText();
-    System.out.println(
-        typeOption
-            + " | "
-            + toLocationChoice.getSelectionModel().getSelectedItem()
-            + " | "
-            + employeeChoice.getSelectionModel().getSelectedItem()
-            + " | "
-            + (commentsBox.getText().equals("") ? "N/A" : commentsBox.getText()));
+    if (typeOption.equals("")) return;
+    request.setSanitationType(typeOption);
+    request.setToLocation(toLocationChoice.getSelectionModel().getSelectedItem().toString());
+    request.setEmployeeAssigned(employeeChoice.getSelectionModel().getSelectedItem().toString());
+    request.setComments(commentsBox.getText().equals("") ? "N/A" : commentsBox.getText());
+    // Temporary
+    System.out.println("Success!");
   }
 
   @FXML
   private void exit() {
     System.exit(0);
+  }
+
+  public static void setToLocation(String location) {
+    toLocationOption = location;
   }
 }

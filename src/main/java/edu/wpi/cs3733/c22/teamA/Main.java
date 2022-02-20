@@ -1,5 +1,6 @@
 package edu.wpi.cs3733.c22.teamA;
 
+import edu.wpi.cs3733.c22.teamA.controllers.SanitationCtrl;
 import edu.wpi.cs3733.c22.teamA.exceptions.ServiceException;
 
 public class Main {
@@ -23,6 +24,7 @@ public class Main {
     App.windowPosY = yCoord;
     App.windowWidth = windowWidth;
     App.windowHeight = windowLength;
+    SanitationCtrl.setToLocation(destLocationID);
     App.launch(App.class);
   }
 }
