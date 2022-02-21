@@ -24,6 +24,7 @@ public class Main {
     App.windowPosY = yCoord;
     App.windowWidth = windowWidth;
     App.windowHeight = windowLength;
+    App.pathToCss = cssPath;
     SanitationCtrl.setToLocation(destLocationID);
     App.launch(App.class);
   }

@@ -16,6 +16,7 @@ public class App extends Application {
   static int windowPosY = -1;
   static int windowWidth = -1;
   static int windowHeight = -1;
+  static String pathToCss = "";
 
   @Override
   public void init() {
@@ -30,6 +31,7 @@ public class App extends Application {
 
     Parent root = loader.load();
     Scene sanitationScene = new Scene(root);
+    if (!pathToCss.equals("")) sanitationScene.getStylesheets().add(pathToCss);
     primaryStage.setScene(sanitationScene);
     if (windowPosX != -1) primaryStage.setX(windowPosX);
     if (windowPosY != -1) primaryStage.setY(windowPosY);
