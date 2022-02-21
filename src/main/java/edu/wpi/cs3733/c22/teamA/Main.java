@@ -1,12 +1,14 @@
 package edu.wpi.cs3733.c22.teamA;
 
 import edu.wpi.cs3733.c22.teamA.controllers.SanitationCtrl;
+import edu.wpi.cs3733.c22.teamA.db.Adb;
 import edu.wpi.cs3733.c22.teamA.exceptions.ServiceException;
 
 public class Main {
 
   // Runs the program when ran separately
   public static void main(String[] args) {
+    Adb.initialConnection();
     App.launch(App.class, args);
   }
 
@@ -26,6 +28,7 @@ public class Main {
     App.windowHeight = windowLength;
     App.pathToCss = cssPath;
     SanitationCtrl.setToLocation(destLocationID);
+    Adb.initialConnection();
     App.launch(App.class);
   }
 }
