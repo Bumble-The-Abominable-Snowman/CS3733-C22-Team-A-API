@@ -33,7 +33,6 @@ public class SanitationCtrl {
   private @FXML JFXTextArea toLocationBox;
   private @FXML JFXTextArea commentsBox;
   private @FXML JFXTextArea typeOtherBox;
-
   private Popup popup;
 
   private static List<SanitationSR> requests = new ArrayList<>();

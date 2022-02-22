@@ -25,7 +25,7 @@
          </GridPane.margin>
       </JFXButton>
       <JFXComboBox fx:id="typeChoice" prefHeight="26.0" prefWidth="118.0" promptText="Select Type" styleClass="jfx-combo-box" stylesheets="@../css/default.css" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-      <JFXTextArea fx:id="toLocationBox" minHeight="-Infinity" prefHeight="26.0" prefWidth="118.0" promptText="Enter Location" styleClass="jfx-text-area" stylesheets="@../css/default.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <JFXTextArea fx:id="toLocationBox" minHeight="-Infinity" prefHeight="26.0" prefWidth="118.0" promptText="Enter Location ID" styleClass="jfx-text-area" stylesheets="@../css/default.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="45.0" left="65.0" right="65.0" top="45.0" />
          </GridPane.margin>
