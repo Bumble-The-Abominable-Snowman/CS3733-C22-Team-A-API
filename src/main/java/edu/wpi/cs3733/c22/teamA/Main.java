@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
+  static EmployeeDAO dataObject = new EmployeeDerbyImpl();
 
   // Runs the program when ran separately
   public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class Main {
   }
 
   // API method to start program
-  void run(
+  public void run(
       int xCoord,
       int yCoord,
       int windowWidth,
@@ -38,12 +39,12 @@ public class Main {
   }
 
   // Get a list of all sanitation requests
-  List<SanitationSR> getRequestList() {
+  public List<SanitationSR> getRequestList() {
     return SanitationCtrl.getRequestList();
   }
 
   // Add an employee to the API database
-  void addEmployee(
+  public void addEmployee(
       String employeeID,
       String employeeType,
       String firstName,
@@ -58,26 +59,22 @@ public class Main {
   }
 
   // Updates the data of an employee in the API database
-  void updateEmployee(String employeeID, String field, Object changedValue) {
-    EmployeeDAO dataObject = new EmployeeDerbyImpl();
+  public void updateEmployee(String employeeID, String field, Object changedValue) {
     dataObject.updateEmployee(employeeID, field, changedValue);
   }
 
   // Removes an employee from the API database
-  void deleteEmployee(String employeeID) {
-    EmployeeDAO dataObject = new EmployeeDerbyImpl();
+  public void deleteEmployee(String employeeID) {
     dataObject.deleteEmployee(employeeID);
   }
 
   // Gets an employee from the database by ID
-  Employee getEmployee(String employeeID) {
-    EmployeeDAO dataObject = new EmployeeDerbyImpl();
+  public Employee getEmployee(String employeeID) {
     return dataObject.getEmployee(employeeID);
   }
 
   // Gets all employees from the database
-  List<Employee> getEmployeeList() {
-    EmployeeDAO dataObject = new EmployeeDerbyImpl();
+  public List<Employee> getEmployeeList() {
     return dataObject.getEmployeeList();
   }
 }
