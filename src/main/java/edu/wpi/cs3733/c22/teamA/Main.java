@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
-  static EmployeeDAO dataObject = new EmployeeDerbyImpl();
+  private static EmployeeDAO dataObject = new EmployeeDerbyImpl();
 
   // Runs the program when ran separately
   public static void main(String[] args) {
@@ -53,7 +53,6 @@ public class Main {
       String phoneNum,
       String address,
       Date startDate) {
-    EmployeeDAO dataObject = new EmployeeDerbyImpl();
     dataObject.enterEmployee(
         employeeID, employeeType, firstName, lastName, email, phoneNum, address, startDate);
   }
@@ -76,5 +75,9 @@ public class Main {
   // Gets all employees from the database
   public List<Employee> getEmployeeList() {
     return dataObject.getEmployeeList();
+  }
+
+  public static EmployeeDAO getEmployeeDAO() {
+    return dataObject;
   }
 }

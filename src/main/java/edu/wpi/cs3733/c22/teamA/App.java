@@ -12,11 +12,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App extends Application {
 
+  private static Stage guiStage;
+
   static int windowPosX = -1;
   static int windowPosY = -1;
   static int windowWidth = -1;
   static int windowHeight = -1;
   static String pathToCss = "";
+
+  public static Stage getStage() {
+    return guiStage;
+  }
 
   @Override
   public void init() {
@@ -38,6 +44,7 @@ public class App extends Application {
     if (windowWidth != -1) primaryStage.setWidth(windowWidth);
     if (windowHeight != -1) primaryStage.setHeight(windowHeight);
     primaryStage.show();
+    guiStage = primaryStage;
   }
 
   @Override
