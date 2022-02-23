@@ -47,6 +47,24 @@ public class App extends Application {
     guiStage = primaryStage;
   }
 
+  public static void createWindow() throws IOException {
+    Stage primaryStage = new Stage();
+    FXMLLoader loader = new FXMLLoader();
+    URL xmlUrl = App.class.getResource("views/SanitationSR.fxml");
+    loader.setLocation(xmlUrl);
+
+    Parent root = loader.load();
+    Scene sanitationScene = new Scene(root);
+    if (!pathToCss.equals("")) sanitationScene.getStylesheets().add(pathToCss);
+    primaryStage.setScene(sanitationScene);
+    if (windowPosX != -1) primaryStage.setX(windowPosX);
+    if (windowPosY != -1) primaryStage.setY(windowPosY);
+    if (windowWidth != -1) primaryStage.setWidth(windowWidth);
+    if (windowHeight != -1) primaryStage.setHeight(windowHeight);
+    primaryStage.show();
+    guiStage = primaryStage;
+  }
+
   @Override
   public void stop() {
     log.info("Shutting Down");

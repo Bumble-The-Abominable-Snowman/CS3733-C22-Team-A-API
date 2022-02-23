@@ -1,5 +1,6 @@
 package teamA_API;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import teamA_API.controllers.SanitationCtrl;
@@ -7,7 +8,7 @@ import teamA_API.db.Adb;
 import teamA_API.db.EmployeeDAO;
 import teamA_API.db.EmployeeDerbyImpl;
 import teamA_API.entities.Employee;
-import teamA_API.entities.SanitationSR;
+import teamA_API.entities.SR;
 import teamA_API.exceptions.ServiceException;
 
 public class Main {
@@ -15,7 +16,6 @@ public class Main {
 
   // Runs the program when ran separately
   public static void main(String[] args) {
-    Adb.initialConnection();
     App.launch(App.class, args);
   }
 
@@ -27,7 +27,7 @@ public class Main {
       int windowLength,
       String cssPath,
       String destLocationID)
-      throws ServiceException {
+      throws ServiceException, IOException {
     App.windowPosX = xCoord;
     App.windowPosY = yCoord;
     App.windowWidth = windowWidth;
@@ -35,11 +35,11 @@ public class Main {
     App.pathToCss = cssPath;
     SanitationCtrl.setToLocation(destLocationID);
     Adb.initialConnection();
-    App.launch(App.class);
+    App.createWindow();
   }
 
   // Get a list of all sanitation requests
-  public static List<SanitationSR> getRequestList() {
+  public static List<SR> getRequestList() {
     return SanitationCtrl.getRequestList();
   }
 
