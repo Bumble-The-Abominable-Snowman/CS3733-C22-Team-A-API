@@ -26,7 +26,8 @@ public class Main {
       int windowWidth,
       int windowLength,
       String cssPath,
-      String destLocationID)
+      String destLocationID,
+      String origLocationID)
       throws ServiceException, IOException {
     App.windowPosX = xCoord;
     App.windowPosY = yCoord;
@@ -34,6 +35,7 @@ public class Main {
     App.windowHeight = windowLength;
     App.pathToCss = cssPath;
     SanitationCtrl.setToLocation(destLocationID);
+    SanitationCtrl.setFromLocation(origLocationID);
     Adb.initialConnection();
     App.createWindow();
   }
