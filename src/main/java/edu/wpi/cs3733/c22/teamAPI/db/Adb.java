@@ -1,4 +1,4 @@
-package edu.wpi.cs3733.c22.teamA.db;
+package edu.wpi.cs3733.c22.teamAPI.db;
 
 import java.sql.*;
 

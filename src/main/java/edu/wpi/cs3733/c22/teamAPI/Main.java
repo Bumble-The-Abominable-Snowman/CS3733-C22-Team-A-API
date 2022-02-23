@@ -1,12 +1,12 @@
-package edu.wpi.cs3733.c22.teamA;
+package edu.wpi.cs3733.c22.teamAPI;
 
-import edu.wpi.cs3733.c22.teamA.controllers.SanitationCtrl;
-import edu.wpi.cs3733.c22.teamA.db.Adb;
-import edu.wpi.cs3733.c22.teamA.db.EmployeeDAO;
-import edu.wpi.cs3733.c22.teamA.db.EmployeeDerbyImpl;
-import edu.wpi.cs3733.c22.teamA.entities.Employee;
-import edu.wpi.cs3733.c22.teamA.entities.SanitationSR;
-import edu.wpi.cs3733.c22.teamA.exceptions.ServiceException;
+import edu.wpi.cs3733.c22.teamAPI.controllers.SanitationCtrl;
+import edu.wpi.cs3733.c22.teamAPI.db.Adb;
+import edu.wpi.cs3733.c22.teamAPI.db.EmployeeDAO;
+import edu.wpi.cs3733.c22.teamAPI.db.EmployeeDerbyImpl;
+import edu.wpi.cs3733.c22.teamAPI.entities.Employee;
+import edu.wpi.cs3733.c22.teamAPI.entities.SanitationSR;
+import edu.wpi.cs3733.c22.teamAPI.exceptions.ServiceException;
 import java.util.Date;
 import java.util.List;
 

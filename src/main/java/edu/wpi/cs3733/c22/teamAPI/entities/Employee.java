@@ -1,4 +1,4 @@
-package edu.wpi.cs3733.c22.teamA.entities;
+package edu.wpi.cs3733.c22.teamAPI.entities;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package edu.wpi.cs3733.c22.teamA;
+package edu.wpi.cs3733.c22.teamAPI;
 
 import java.io.IOException;
 import java.net.URL;
