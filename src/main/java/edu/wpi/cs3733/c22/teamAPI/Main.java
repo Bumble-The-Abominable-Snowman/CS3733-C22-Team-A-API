@@ -20,7 +20,7 @@ public class Main {
   }
 
   // API method to start program
-  public void run(
+  public static void run(
       int xCoord,
       int yCoord,
       int windowWidth,
@@ -39,12 +39,12 @@ public class Main {
   }
 
   // Get a list of all sanitation requests
-  public List<SanitationSR> getRequestList() {
+  public static List<SanitationSR> getRequestList() {
     return SanitationCtrl.getRequestList();
   }
 
   // Add an employee to the API database
-  public void addEmployee(
+  public static void addEmployee(
       String employeeID,
       String employeeType,
       String firstName,
@@ -58,22 +58,22 @@ public class Main {
   }
 
   // Updates the data of an employee in the API database
-  public void updateEmployee(String employeeID, String field, Object changedValue) {
+  public static void updateEmployee(String employeeID, String field, Object changedValue) {
     dataObject.updateEmployee(employeeID, field, changedValue);
   }
 
   // Removes an employee from the API database
-  public void deleteEmployee(String employeeID) {
+  public static void deleteEmployee(String employeeID) {
     dataObject.deleteEmployee(employeeID);
   }
 
   // Gets an employee from the database by ID
-  public Employee getEmployee(String employeeID) {
+  public static Employee getEmployee(String employeeID) {
     return dataObject.getEmployee(employeeID);
   }
 
   // Gets all employees from the database
-  public List<Employee> getEmployeeList() {
+  public static List<Employee> getEmployeeList() {
     return dataObject.getEmployeeList();
   }
 
