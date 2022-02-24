@@ -65,6 +65,10 @@ public class App extends Application {
     guiStage = primaryStage;
   }
 
+  public static void exit() {
+    guiStage.close();
+  }
+
   @Override
   public void stop() {
     log.info("Shutting Down");
