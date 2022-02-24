@@ -113,7 +113,7 @@ public class SanitationCtrl {
 
   @FXML
   private void exit() {
-    System.exit(0);
+    App.exit();
   }
 
   public static void setToLocation(String location) {
