@@ -38,7 +38,7 @@ public class SanitationCtrl {
 
   private static List<SR> requests = new ArrayList<>();
 
-  private static String toLocationOption = "N/A";
+  private static String toLocationOption = "";
   private static String employeeOption = "001";
 
   @FXML

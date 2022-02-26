@@ -16,6 +16,7 @@ public class Main {
 
   // Runs the program when ran separately
   public static void main(String[] args) {
+    Adb.initialConnection();
     App.launch(App.class, args);
   }
 
