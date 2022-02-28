@@ -39,7 +39,6 @@ public class SanitationCtrl {
   private static List<SR> requests = new ArrayList<>();
 
   private static String toLocationOption = "";
-  private static String employeeOption = "001";
 
   @FXML
   private void initialize() {
@@ -118,10 +117,6 @@ public class SanitationCtrl {
 
   public static void setToLocation(String location) {
     toLocationOption = location;
-  }
-
-  public static void setEmployeeOption(String e) {
-    employeeOption = e;
   }
 
   public static List<SR> getRequestList() {
