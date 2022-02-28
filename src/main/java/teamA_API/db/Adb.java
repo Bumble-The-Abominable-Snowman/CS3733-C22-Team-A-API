@@ -10,7 +10,7 @@ public class Adb {
 
     // Connection to database driver
     System.out.println("----- Apache Derby Connection Testing -----");
-    pathToDBA = "src/main/resources/edu/wpi/cs3733/c22/teamA/db/API-DBA";
+    pathToDBA = "src/main/resources/teamA_API/db/API-DBA";
 
     try {
       Class.forName("org.apache.derby.jdbc.EmbeddedDriver");

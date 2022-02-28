@@ -28,11 +28,9 @@ import teamA_API.entities.SR;
 
 public class SanitationCtrl {
 
-  private @FXML JFXComboBox<String> employeeRequestedChoice;
-  private @FXML JFXComboBox<String> employeeAssignedChoice;
-  private @FXML Label origLocID;
-  private @FXML Label destLocID;
-  private @FXML JFXComboBox<String> typeChoice;
+  private @FXML JFXComboBox typeChoice;
+  private @FXML JFXComboBox employeeChoice;
+  private @FXML JFXTextArea toLocationBox;
   private @FXML JFXTextArea commentsBox;
   private @FXML JFXTextArea typeOtherBox;
 
@@ -40,8 +38,8 @@ public class SanitationCtrl {
 
   private static List<SR> requests = new ArrayList<>();
 
-  private static String toLocationOption;
-  private static String fromLocationOption;
+  private static String toLocationOption = "";
+  private static String employeeOption = "001";
 
   @FXML
   private void initialize() {
@@ -50,8 +48,7 @@ public class SanitationCtrl {
     // Make text areas wrap
     commentsBox.setWrapText(true);
     typeOtherBox.setWrapText(true);
-    origLocID.setWrapText(true);
-    destLocID.setWrapText(true);
+    toLocationBox.setWrapText(true);
 
     // Put sanitation types in type menu
     typeChoice.getItems().addAll("Decontaminate Area", "Floor Spill", "Other");
@@ -68,59 +65,48 @@ public class SanitationCtrl {
             });
 
     // Put example locations in location menu
-    origLocID.setText(String.format("Orig Location ID: %s", fromLocationOption));
-    destLocID.setText(String.format("Dest Location ID: %s", toLocationOption));
+    toLocationBox.setText(toLocationOption);
 
     // Put employees from database in employee menu
     EmployeeDAO dataObject = Main.getEmployeeDAO();
     for (Employee e : dataObject.getEmployeeList()) {
-      employeeAssignedChoice.getItems().add(e.getFullName());
-      employeeRequestedChoice.getItems().add(e.getFullName());
+      employeeChoice.getItems().add(e.getFullName());
     }
   }
 
   private void reloadEmployeeBox() {
     EmployeeDAO dataObject = Main.getEmployeeDAO();
-    employeeAssignedChoice.getItems().clear();
-    employeeRequestedChoice.getItems().clear();
+    employeeChoice.getItems().clear();
     for (Employee e : dataObject.getEmployeeList()) {
-      employeeRequestedChoice.getItems().add(e.getFullName());
-      employeeAssignedChoice.getItems().add(e.getFullName());
+      employeeChoice.getItems().add(e.getFullName());
     }
   }
 
   @FXML
-  private void submitRequest() throws IllegalAccessException {
+  private void submitRequest() {
     // Checks to make sure required fields are selected
     if (typeChoice.getSelectionModel().getSelectedItem() == null
-        || employeeRequestedChoice.getSelectionModel().getSelectedItem() == null
-        || employeeAssignedChoice.getSelectionModel().getSelectedItem() == null) return;
+        || toLocationBox.getText().equals("")
+        || employeeChoice.getSelectionModel().getSelectedItem() == null) return;
     // Creates sanitation request object
     SR request = new SR();
     String typeOption = typeChoice.getSelectionModel().getSelectedItem().toString();
     if (typeOption == "Other") typeOption = typeOtherBox.getText();
     if (typeOption.equals("")) return;
 
+    String employeeID = "";
     for (Employee e : Main.getEmployeeDAO().getEmployeeList()) {
-      if (employeeRequestedChoice.getSelectionModel().getSelectedItem().equals(e.getFullName())) {
-        request.setField("employee_requested", e);
+      if (employeeChoice.getSelectionModel().getSelectedItem().toString().equals(e.getFullName())) {
+        employeeID = e.getEmployeeID();
       }
     }
-
-    for (Employee e : Main.getEmployeeDAO().getEmployeeList()) {
-      if (employeeAssignedChoice.getSelectionModel().getSelectedItem().equals(e.getFullName())) {
-        request.setField("employee_assigned", e);
-      }
-    }
-
-    request.setFieldByString("request_id", String.format("SANITATION_API_ID_%d", requests.size()));
-    request.setFieldByString("start_location", toLocationOption);
-    request.setFieldByString("end_location", toLocationOption);
-    request.setFieldByString(
-        "comments", commentsBox.getText().equals("") ? "N/A" : commentsBox.getText());
 
     request.setFieldByString("sanitation_type", typeOption);
+    request.setFieldByString("end_location", toLocationBox.getText());
 
+    request.setFieldByString("employee_assigned", employeeID);
+    request.setFieldByString(
+        "comments", commentsBox.getText().equals("") ? "N/A" : commentsBox.getText());
     // Add request to internal list
     requests.add(request);
   }
@@ -134,8 +120,8 @@ public class SanitationCtrl {
     toLocationOption = location;
   }
 
-  public static void setFromLocation(String location) {
-    fromLocationOption = location;
+  public static void setEmployeeOption(String e) {
+    employeeOption = e;
   }
 
   public static List<SR> getRequestList() {
