@@ -55,4 +55,32 @@ public class Employee {
     Date date = originalFormat.parse(s);
     this.startDate = date;
   }
+
+  public String getEmployeeID() {
+    return employeeID;
+  }
+
+  public String getEmployeeType() {
+    return employeeType;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getPhoneNum() {
+    return phoneNum;
+  }
+
+  public String getAddress() {
+    return address;
+  }
 }
